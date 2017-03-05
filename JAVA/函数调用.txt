@@ -1,0 +1,15 @@
+package While;
+
+public class While
+{
+  
+	public static int getResult(int num)
+	{
+		return num * 3 + 5;
+	}
+	public static void main (String args[])
+  {
+	  int a = getResult(4);
+	  System.out.println("x="+a);
+  }
+}

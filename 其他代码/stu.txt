@@ -1,0 +1,184 @@
+#include <stdio.h>
+#include <string.h>
+void avg_stu(int count);
+void avr_cor(double* ch, double* ma, double* eng);
+void output_stu();
+struct student
+{
+	char name[15];
+	int chinese;
+	int math;
+	int english;
+	double avg;
+};
+int count = 0;
+student stu[100];
+int length = 0;
+double get_chinese;
+double get_math;
+double get_english;
+student hi_avg;
+student hi_chinese;
+student hi_math;
+student hi_english;
+void input_stu()
+{
+	while (true)
+	{
+		printf("please input name of stu%d-----input \"stop\" to stop input\n", count);
+		scanf("%s", &stu[count].name);
+		if (strcmp(stu[count].name, "stop") == 0)
+		{
+			break;
+		}
+		printf("please input chinese grade of stu%d\n", count);
+		scanf("%d", &stu[count].chinese);
+		if (stu[count].chinese < 0 || stu[count].chinese>150)
+		{
+			printf("bad input\n");
+			input_stu();
+		}
+		printf("please input math grade of stu%d\n", count);
+		scanf("%d", &stu[count].math);
+		if (stu[count].math < 0 || stu[count].math>150)
+		{
+			printf("bad input\n");
+			input_stu();
+		}
+		printf("please input english grade of stu%d\n", count);
+		scanf("%d", &stu[count].english);
+		if (stu[count].english < 0 || stu[count].english>150)
+		{
+			printf("bad input\n");
+			input_stu();
+		}
+		count++;
+	}
+	length = count;
+}
+void calc_data()
+{
+	count = 0;
+	while (count <= length)
+	{
+		avg_stu(count);
+		count++;
+	}
+	avr_cor(&get_chinese, &get_math, &get_english);
+}
+void avg_stu(int count)
+{
+	stu[count].avg = (stu[count].chinese + stu[count].math + stu[count].english) / 3.0;
+}
+void avr_cor(double* ch, double* ma, double* eng)
+{
+	int chinese_sum = 0;
+	int n = 0;
+	while (n <= length)
+	{
+		chinese_sum = chinese_sum + stu[n].chinese;
+		n++;
+	}
+	double avg_chinese = chinese_sum / length;
+	*ch = avg_chinese;
+	//
+	n = 0;
+	int math_sum = 0;
+	while (n <= length)
+	{
+		math_sum = math_sum + stu[n].math;
+		n++;
+	}
+	double avg_math = math_sum / length;
+	*ma = avg_math;
+	//
+	n = 0;
+	int english_sum = 0;
+	while (n <= length)
+	{
+		english_sum = english_sum + stu[n].english;
+		n++;
+	}
+	double avg_english = english_sum / length;
+	*eng = avg_english;
+}
+void highest()
+{
+	count = 0;
+	int hi;
+	hi = stu[count].chinese;
+	while (count <= length)
+	{
+		if (stu[count].chinese >= hi)
+		{
+			hi_chinese = stu[count];
+		}
+		count++;
+	}
+	count = 0;
+	hi = stu[count].math;
+	while (count <= length)
+	{
+		if (stu[count].math >= hi)
+		{
+			hi_math = stu[count];
+		}
+		count++;
+	}
+	count = 0;
+	hi = stu[count].english;
+	while (count <= length)
+	{
+		if (stu[count].english >= hi)
+		{
+			hi_english = stu[count];
+		}
+		count++;
+	}
+	count = 0;
+	double hi0 = stu[count].avg;
+	while (count < length)
+	{
+		if (stu[count].avg >= hi0)
+		{
+			hi_avg = stu[count];
+		}
+		count++;
+	}
+}
+void output_stu()
+{
+	printf("-------------------result-------------------\n");
+	count = 0;
+	printf("Name        Chinese    Math     English      Average\n");
+	while (count < length)
+	{
+		printf("%-10s   %d        %d        %d       %.2lf\n", stu[count].name, stu[count].chinese, stu[count].math, stu[count].english, stu[count].avg);
+		count++;
+	}
+	while (count < length)
+	{
+		printf("The average score of %s is %.2lf\n", stu[count].name, stu[count].avg);
+		count++;
+	}
+	printf("---------------------------------------------------------------\n");
+	printf("The average score of Chinese is %.2lf\n", get_chinese);
+	printf("The average score of Math    is %.2lf\n", get_math);
+	printf("The average score of English is %.2lf\n", get_english);
+	printf("-------------------------------------------------------------------------\n");
+	printf("The student that get higest in Chinese is %s,The score is %d\n", hi_chinese.name, hi_chinese.chinese);
+	printf("The student that get higest in Math    is %s,The score is %d\n", hi_math.name, hi_math.math);
+	printf("The student that get higest in English is %s,The score is %d\n", hi_english.name, hi_english.english);
+	printf("-------------------------------------------------------------------------\n");
+	printf("The student that get higest on Average is %s,The score is %.2lf\n", hi_avg.name, hi_avg.avg);
+	printf("-------------------------------------------------------------------------\n");
+}
+int main(void)
+{
+	input_stu();
+	calc_data();
+	highest();
+	output_stu();
+	return 0;
+}
+

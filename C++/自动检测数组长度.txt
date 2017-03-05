@@ -1,0 +1,33 @@
+#include <stdio.h>
+void max_min(int* p,int len,int* pmax,int* pmin)
+{
+	int _max = p[0];
+	int _min = p[0];
+	for(int i=1;i<len;i++)
+	{
+		if (p[i]>_max)
+		{
+			_max = p[i];
+		}
+		if (p[i]<_min)
+		{
+			_min = p[i];
+		}
+		*pmax = _max;
+		*pmin = _min;
+	}
+
+}
+int main()
+{
+	int arr[] = {12,32,56,45,98,52,444,665,742,5246,21,13};
+	int ret;
+	int pmax;
+	int pmin;
+	int len_detect;
+        len_detect = sizeof(arr)/sizeof(int);//判断数组的长度
+	max_min(arr,len_detect,&pmax,&pmin);
+	printf("最大值：%d\n",pmax);
+	printf("最小值：%d\n",pmin);
+	return 0;
+}

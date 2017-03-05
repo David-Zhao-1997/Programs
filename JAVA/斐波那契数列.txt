@@ -1,0 +1,39 @@
+package Study;
+import java.util.Scanner;
+class Study
+	{
+		public static void main(String[] args)
+		{
+			Scanner scan = new Scanner(System.in);
+			System.out.println("input m");
+			double m = scan.nextDouble();
+			System.out.println("input n");
+			double n = scan.nextDouble();
+			double i = m;
+			while (i <= n)
+			{
+				java.text.NumberFormat nf = java.text.NumberFormat.getInstance();   
+				nf.setGroupingUsed(false);  
+				System.out.println(nf.format(fbi(i)));
+				i++;
+			}	
+		}
+		static double fbi(double n)
+		{
+			if (n == 1||n == 2)
+				return 1;
+			else
+				return fbi(n - 2) + fbi(n - 1);
+		}
+		
+
+}
+
+
+
+
+
+
+
+
+

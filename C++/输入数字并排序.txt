@@ -1,0 +1,57 @@
+#include <stdio.h>
+#define end 0
+void selectSort(int* arr, int length)//选择排序
+{
+	for (int x = 0; x < length; x++)
+	{
+		for (int y = x + 1; y < length; y++)
+		{
+			if (arr[x] > arr[y])//更换符号可以修改升降序
+			{
+				int temp = arr[x];//把最小的数字换到前面
+				arr[x] = arr[y];
+				arr[y] = temp;
+			}
+		}
+	}
+}
+void printArray(int* arr, int length)//遍历并打印数组
+{
+	printf("[");
+	for (int x = 0; x < length; x++)
+	{
+		if (x != length - 1)
+		{
+			printf("%d,", arr[x]);
+		}
+		else
+		{
+			printf("%d]", arr[x]);
+		}
+	}
+}
+int main(void)
+{
+	int arr[128];
+	int length = 0;
+	while (true)
+	{
+		printf("请输入正整数\n");
+		int ch = -1;
+		scanf_s("%d", &ch);
+		if (ch <= 0)
+		{
+			break;
+		}
+		else
+		{
+			arr[length] = ch;
+			length++;
+		}
+	}//输入并存储正整数
+	printArray(arr, length);
+	selectSort(arr, length);//选择排序
+	printf("\n");
+	printArray(arr, length);
+	printf("\n");
+}

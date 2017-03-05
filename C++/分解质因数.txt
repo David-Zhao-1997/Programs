@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main(void)
+{
+	int i = 2,number;      //从2开始寻找因子
+	scanf("%d", &number);
+	while (number>1)       //while循环用于遍历并寻找因子
+	{
+		if (number%i == 0)  //判断此时的i是否为number的一个因子
+		{
+			printf("%d\n",i);
+			number /= i;      //除去已经找到的因数
+		}
+		else
+			i++;
+	}
+}

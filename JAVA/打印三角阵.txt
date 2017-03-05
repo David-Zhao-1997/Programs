@@ -1,0 +1,18 @@
+package While;
+
+public class While
+{
+  public static void main (String args[])
+  {
+	  for(int x=0;x<5;x++)//x<5 外循环控制行数
+	  {
+		  for(int y=0;y<5;y++)
+		  {
+			  if(y>=x)
+			  System.out.print("*");
+		  }
+		  System.out.println();
+	  }
+		 
+  }
+}

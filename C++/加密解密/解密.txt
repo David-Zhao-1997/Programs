@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+int main()
+{
+	char a[65536];
+	int b[65536];
+	char x[65536];
+	int i, l;
+	int j = 0;
+	int k = 0;
+	gets_s(a);
+	l = strlen(a);
+	for (i = 0; i < l; i++)
+		a[i] = a[i] - '0';
+	while (true)
+	{
+		if (j < l)
+		{
+			b[k] = a[j + 3] + 10 * a[j + 2] + 100 * a[j + 1] + 1000 * a[j];
+			j += 4;
+			printf("bk=%d\n", b[k]);
+			x[k] = (b[k] / 25) - 37;
+			k++;
+		}
+		else
+			break;
+	}
+	int m = 0;
+	while (m < k)
+	{
+		printf("%c", x[m]);
+		m++;
+	}
+	system("pause");
+}

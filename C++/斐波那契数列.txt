@@ -1,0 +1,21 @@
+#include <stdio.h>
+double fbi(int n)
+{
+	if (n == 1||n == 2)
+		return 1;
+	else
+		return fbi(n - 2) + fbi(n - 1);
+}
+int main(void)
+{
+	printf("input m n\n");
+	double m, n;
+	scanf("%lf%lf", &m, &n);
+	double i = m;
+	while (i <= n)
+	{
+		printf("%.0lf\n", fbi(i));
+		i++;
+	}
+	return 0;
+}

@@ -1,0 +1,57 @@
+package While;
+import java.io.*;
+import java.math.BigInteger;
+class While
+{
+	public static void main(String[] args) throws IOException
+	{
+			int i = 0;
+			int j = 0;
+			System.out.print("请输入一个整数i：");
+			BufferedReader strin=new BufferedReader(new InputStreamReader(System.in));
+			i=Integer.parseInt(strin.readLine());
+			System.out.print("请输入一个整数j：");
+			j=Integer.parseInt(strin.readLine());
+			if (i > j)
+			{
+				int temp = i;
+				i = j;
+				j = temp;
+			}
+			if (i < j)
+			{
+				System.out.println("最大值为"+j);
+				System.out.println("最小值为"+i);
+			}
+			int max = j;
+			int min = i;
+		  	BigInteger sum =BigInteger.valueOf(0);
+		 	int a = min;
+			int b = min;
+		 	while (a <= max)
+			{
+		 		sum = sum.add(BigInteger.valueOf(a));
+				a++;
+			}
+		 	System.out.println("和:"+sum);
+		 	BigInteger prod =BigInteger.valueOf(1); 
+			while (b <= max)
+			{
+				prod= prod.multiply(BigInteger.valueOf(b));
+				b = b+1;
+			}
+			System.out.println("积:"+prod);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

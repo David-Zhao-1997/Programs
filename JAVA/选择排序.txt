@@ -1,0 +1,48 @@
+package While;
+//Ñ¡ÔñÅÅĞò
+public class While
+{
+	public static void selectSort(int[] arr)
+	{
+		for(int x = 0;x<arr.length;x++)
+		{
+			for(int y=x+1;y<arr.length;y++)
+			{
+				if(arr[x]>arr[y])//¸ü»»·ûºÅ¿ÉÒÔĞŞ¸ÄÉı½µĞò
+				{
+				int temp = arr[x];
+				arr[x]=arr[y];
+				arr[y]=temp;
+				}
+			}
+		}
+	}
+
+	public static void printArray(int[] arr)
+	{
+		System.out.print("[");
+		for(int x=0;x<arr.length;x++)
+		{
+			if(x!=arr.length-1)
+			{
+				System.out.print(arr[x]+",");
+			}
+			else
+			{
+				System.out.print(arr[x]+"]");
+			}
+		}
+	}
+	
+	public static void main (String args[])
+	  	{
+			int arr[] = {56,32,56,111,89,2326,56256,516,15};
+			printArray(arr);
+			
+			selectSort(arr);
+			
+			System.out.println();
+			
+			printArray(arr);
+		}
+}

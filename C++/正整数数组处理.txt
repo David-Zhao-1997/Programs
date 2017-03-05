@@ -1,0 +1,52 @@
+#include <stdio.h>
+int main()
+{
+	int numbers[128];
+	int count=0;
+	while (1)
+	{
+		printf("请输入正整数\n");
+		int ch=-1;
+		scanf("%d",&ch);
+		if (ch<=0)
+		{
+			break;
+		}
+		else
+		{
+			numbers[count]=ch;
+			count++;
+		}
+	}//输入并存储正整数
+
+	printf("-------result--------\n");
+	int i=0;
+	int sum =0;
+	for(int i=0;i<count;i=i+1)
+	{
+		printf("%d\n",numbers[i]);
+		sum=sum+numbers[i];//对输入数据进行求和
+	}//打印输入的所有正整数
+	printf("数据求和：%d\n",sum);//输出求和结果
+	//以下为求最大最小值代码
+	int m, max = 0, min = 999999999;
+	for(m=0;m<count;m++)
+	{   
+		if(numbers[m] > max)
+		{
+			max = numbers[m];
+
+		}
+	}
+	for(m=0;m<count;m++)
+	{   
+		if(numbers[m] < min)
+		{
+			min = numbers[m];
+
+		} 
+	}
+	printf("最大值:%d\n最小值:%d\n", max, min);
+	return 0;
+}
+//以上为求最大最小值代码

@@ -1,0 +1,32 @@
+public class home
+{
+ public static void main(String args[])
+ {
+	int x,y,z;
+	x=3;
+	y=1;
+	z=0;
+	if(x>y)
+	{
+		if(x>z)
+		{
+			System.out.println("The Max Number Is X");
+		}
+		else
+		{
+			System.out.println("The Max Number Is Z");
+		}
+	}
+	if(x<y)
+	{
+		if(y>z)
+		{
+			System.out.println("The Max Number Is Y");
+		}
+		else
+		{
+			System.out.println("The Max Number Is Z");
+	    }
+	}
+ }
+}

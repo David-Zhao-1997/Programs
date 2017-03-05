@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include<math.h>
+/*int c(int a)
+{
+	a = 5 * (a - 32) / 9;
+	return a;
+}
+int f(int b)
+{
+	b = b* 1.8+32;
+	return b;
+}*/
+/*double x(double t)
+{
+	return 0.5 * 10 * t*t;
+}*/
+/*int main(void)
+{
+	char input;
+	int value;
+	scanf("%c", &input);
+		if (input == 'c')
+		{
+			printf("请输入华氏温度");
+			scanf("%d", &value);
+			printf("%d\n", c(value));
+		}
+		else if (input == 'f')
+		{
+			printf("请输入摄氏温度");
+			scanf("%d", &value);
+			printf("%d\n", f(value));
+		}
+		else
+		{
+			printf("bad input!");
+		}
+	
+}*/
+/*int main()
+{
+	printf("%.2lf\n", x(3));
+	
+}*/
+/*double fee(double a)
+{
+	if (a<=15)
+	{
+		return ((4*a)/3);
+	}
+	else
+	{
+		return 2.5*a - 10.5;
+	}
+}
+int main()
+{
+	double x;
+	printf("请输入用水量\n");
+	scanf("%lf", &x);
+	printf("%lf\n", fee(x));
+}*/
+/*int main()
+{
+	double money, year;
+	double rate, sum;
+	printf("Please input");
+	scanf("%d,%d,%lf", &money, &year, &rate);
+	sum = money*pow(year, rate);
+	printf("%.2lf\n", sum);
+}*/

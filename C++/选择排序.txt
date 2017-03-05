@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void selectSort(int* arr,int length)//选择排序
+{
+	for(int x = 0;x<length-1;x++)
+	{
+		for(int y=x+1;y<length;y++)
+		{
+			if(arr[x]>arr[y])//更换符号可以修改升降序
+			{
+				int temp = arr[x];//把最小的数字换到前面
+				arr[x]=arr[y];    
+				arr[y]=temp;      
+			}
+		}
+	}
+}
+void printArray(int* arr,int length)//遍历并打印数组
+{
+	printf("[");
+	for(int x=0;x<length;x++)
+	{
+		if(x!=length-1)
+		{
+			printf("%d,",arr[x]);
+		}
+		else
+		{
+			printf("%d]",arr[x]);
+		}
+	}
+}
+
+void main ()
+{
+	int arr[] = {5,1,6,4,2,8,9,546,45,12,456,56,57,452,652,655,555,5622,456};
+	int length = sizeof(arr)/sizeof(int);
+	printArray(arr,length);
+	selectSort(arr,length);//选择排序
+	printf("\n");
+	printArray(arr,length);
+	printf("\n");
+}

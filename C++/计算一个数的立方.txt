@@ -1,0 +1,14 @@
+#include <stdio.h>
+int cube(char x)
+{
+  int m;
+  m=x*x*x;
+  return m;
+}
+int main()
+{   
+	int in_put;
+	scanf("%d",&in_put);
+	printf("%d\n",cube(in_put));
+        return 0;
+}

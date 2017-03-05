@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+int factorsum(int number)
+{
+	int i = 1;      //此时从1开始寻找因子
+	int j;
+	int sum = 0;
+	do       //while循环用于遍历并寻找因子
+	{
+		if (number % i == 0)  //判断此时的i是否为number的一个因子
+		{
+			j = number / i;
+			if (j == i)
+			{
+				j = 0;
+			}
+			if (i == 1)
+			{
+				j = 0;
+			}
+			sum = sum + i + j;
+			//number /= i;      //此处不需要除去已经找到的因数
+		}
+			i++;
+	} while (i <= sqrt(number));
+	return sum;
+}
+int main(void)
+{
+	printf("please input m  n\n");
+	int m, n;
+	scanf("%d%d", &m, &n);
+	while (m<=n)
+	{
+		if (factorsum(m) == m)
+			printf("%d\n",m);
+		m++;
+	}
+	return 0;
+}

@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main()
+{
+	int a ,b;
+    printf("请输入两个数字并以回车键分割\n");
+	scanf("%d",&a);
+	scanf("%d",&b);
+    if (a<b)
+    {
+		int temp = a;
+		a = b;
+		b = temp;
+    }
+	while(true)
+	{
+		int c = a % b;
+        if (c==0)
+        {
+			printf("%d\n",b);
+			break;
+        }
+		a=b;
+		b=c;
+    }
+	return 0;
+}

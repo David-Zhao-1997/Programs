@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	//int numbers[128];
+	int count = 0;
+	//int size = 4;
+	int* p = (int*)malloc(0);
+	while (1)
+	{
+		printf("请输入正整数\n");
+		int ch=-1;
+		scanf("%d",&ch);
+		if (ch<=0)
+		{
+			break;
+		}
+		else
+		{
+			p[count]=ch;
+			count++;
+		}
+	}//输入并存储正整数
+
+	printf("-------result--------\n");
+	int i=0;
+	int sum =0;
+	for(int i=0;i<count;i=i+1)
+	{
+		printf("%d\n",p[i]);
+		sum=sum+p[i];//对输入数据进行求和
+	}//打印输入的所有正整数
+	printf("数据求和：%d\n",sum);//输出求和结果
+	//以下为求最大最小值代码
+	int m, max = p[0], min = p[0];
+	for(m=0;m<count;m++)
+	{   
+		if(p[m] > max)
+		{
+			max = p[m];
+
+		}
+	}
+	for(m=0;m<count;m++)
+	{   
+		if(p[m] < min)
+		{
+			min = p[m];
+
+		} 
+	}
+	double avg = (double)sum / (double)count;
+	printf("最大值:%d\n最小值:%d\n平均值:%.2lf\n", max, min, avg);
+	//free(p);
+	return 0;
+}
+//以上为求最大最小值代码
